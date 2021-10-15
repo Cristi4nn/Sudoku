@@ -19,17 +19,7 @@ class Ferramentas:
             atributos das classes.
             
         """
-        saida = ""
-        
-        manualTela = Ferramentas.getManual()
-        
-        saida += 'MANUAL DA CLASSE TELA\n'
-        
-        for chave in manualTela:
-            saida += f'{chave} : {manualTela[chave]}\n'
-        saida +='\n'
-        
-        return saida
+        pass
 
 
     def cronometro(self):
