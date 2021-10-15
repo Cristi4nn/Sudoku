@@ -15,7 +15,7 @@
     
       ->      8 9 2  | 7 3 6  | 1 4 5
               7 1 5  | 9 8 4  | 3 6 2
-               6 4 3  | 1 5 2  | 9 7 8
+              6 4 3  | 1 5 2  | 9 7 8
               - - - - - - - - - - - - - 
               1 3 7  | 6 2 9  | 5 8 4
               2 8 4  | 3 7 5  | 6 1 9
@@ -30,15 +30,16 @@
         Quando o jogo estiver completo, o jogo termina e o vencedor recebe uma mensagem positiva.
     """
 # Document properties
-__author__ = ['Cristian_Andrade','Ramiro_Reis']
+__author__ = 'Ramiro_Reis'
 __copyright__ = 'Copyright_2021'
 __credits__ = __author__
 __license__ = 'GPL'
 __version__ = '1.0.0'
-__maintainer__ = 'Cristian_Andrade' # Responsável por manter o programa funcionando
-__email__ = 'ihuunter@poli.ufrj.br'
+__maintainer__ = 'Ramiro_Reis' # Responsável por manter o programa funcionando
+__email__ = 'ramiro_barris13@poli.ufrj.br'
 __status__ = 'Production'
 
+from estatistica import Estatistica, Graficos
 from interfaceUsuario import *
 from ferramentas import *
 from tela import *
@@ -75,21 +76,15 @@ class Sudoku(Ferramentas):
         """
         saida = ""
         
-        manualTela = Sudoku.getManual()
-        
-        saida += 'MANUAL DA CLASSE TELA\n'
-        
-        for chave in manualTela:
-            saida += f'{chave} : {manualTela[chave]}\n'
-        saida +='\n'
+        manual = {'ESTATISTICA':Estatistica.getManual(),'GRAFICOS':Graficos.getManual(),'FERRAMENTAS':Ferramentas.getManual(),'GRADE':Grade.getManual(),'INTERFACE':InterfaceUsuario.getManual(),'JOGADOR':Jogador.getManual(),'LOG':Log.getManual(),'SUDOKU':Sudoku.getManual(),'TELA':Tela.getManual(),'VALIDSUDOKU':ValidSudoku.getManual()}
+            
+        for x,y in manual.items():
+            saida += f'MANUAL DA CLASSE {x}\n'
+            for chave in y:
+                saida += f'{chave} : {x[chave]}\n'
+            saida +='\n'
         
         return saida
-    
-    def jogada(self,pos,valor):
-        """
-           Faz a jogada do 'jogador', ou seja, insere o valor escolhido na posição 'pos' 
-        """
-        pass
     
     def terminou(self):
         """
