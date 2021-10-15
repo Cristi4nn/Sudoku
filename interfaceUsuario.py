@@ -1,3 +1,4 @@
+from log import *
 import os
 
 class InterfaceUsuario:
@@ -21,20 +22,39 @@ class InterfaceUsuario:
             atributos das classes.
             
         """
-        saida = ""
-        
-        manualTela = InterfaceUsuario.getManual()
-        
-        saida += 'MANUAL DA CLASSE TELA\n'
-        
-        for chave in manualTela:
-            saida += f'{chave} : {manualTela[chave]}\n'
-        saida +='\n'
-        
-        return saida
     
     # Tabela com todos os caracteres reconhecidos pelo console do Windows.
     tabelaCaracteres = {chr(x) : x for x in range(256)}
+
+    def menu(self):
+        """
+            Função que oferece opçoes para o usuário
+        """
+
+        print('Bem vindo ao Sudoku!')
+        print('Escolha uma opção:')
+        print('1) Novo Jogo')
+        print('2) Carregar Jogo ou Salvar jogo atual')
+        print('3) Estatísticas do jogo')
+        print('4) Sair')
+
+
+    def jogada(self):
+        """
+           Faz a jogada do 'jogador', ou seja, insere o valor escolhido na posição 'pos' 
+        """
+        while True:
+            try:
+                linha = int(input('Informe a posição da linha (1 a 9)'))
+                coluna = int(input('Informe a posição da coluna (1 a 9)'))
+                pos = [linha,coluna]
+            except ValueError:
+                print('Linha ou Coluna Inválida. Tente Novamente!')
+                Log().arquivoErros(self,'ValueError')
+            except CommandError:
+                print('Comando Inválido. Tente Novamente!')
+                Log().arquivoErros(self,'CommandError')
+
 
 
     def pause():
