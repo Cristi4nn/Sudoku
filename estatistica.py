@@ -173,6 +173,7 @@ class Graficos(Estatistica):
             plt.show()
             plt.savefig(escolha)
         except KeyError:
+            Log().arquivoErros('KeyError')
             print('Tente Novamente!')
     
     def getAtributos():
