@@ -17,17 +17,7 @@ class Jogador:
             atributos das classes.
             
         """
-        saida = ""
-        
-        manualTela = Jogador.getManual()
-        
-        saida += 'MANUAL DA CLASSE TELA\n'
-        
-        for chave in manualTela:
-            saida += f'{chave} : {manualTela[chave]}\n'
-        saida +='\n'
-        
-        return saida
+       pass
 
     def getAtributos():
         """
@@ -46,21 +36,3 @@ class Jogador:
             (None) -> set
         """
         return __metodos
-
-    def getManual():
-        """
-            Esta função estática (chamada sempre através de Jogador.getManual()) retorna um 
-            dicionário que mapeia os nomes dos atributos e métodos às suas descrições.
-            
-            (None) -> dict
-        """
-        manual = dict()
-        manual['__init__']              = Jogador.__init__.__doc__
-        manual['__str__']               = Jogador.__str__.__doc__
-        manual['getManual']          = Jogador.getManual.__doc__
-        manual['getAtributos']         = Jogador.getAtributos.__doc__
-        manual['getMetodos']            = Jogador.getMetodos.__doc__
-        manual['nick']                   = '# Nome do jogador no jogo.'
-        manual['pontuacaoAtual']   = '# Quantas posições o jogador já acertou até agora'
-        manual['quantErros']            = '# Quantas vezes o jogador errou'
-        return manual
