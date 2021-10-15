@@ -107,7 +107,7 @@ class Estatistica:
             arq.close()
             return array
         except FileNotFoundError:
-            Log().arquivoJogadas('')
+            Log().arquivoErros('')
 
     def getAtributos():
         """
