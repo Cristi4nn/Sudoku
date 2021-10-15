@@ -21,17 +21,7 @@ class Grade:
             atributos das classes.
             
         """
-        saida = ""
-        
-        manualTela = Grade.getManual()
-        
-        saida += 'MANUAL DA CLASSE TELA\n'
-        
-        for chave in manualTela:
-            saida += f'{chave} : {manualTela[chave]}\n'
-        saida +='\n'
-        
-        return saida
+        pass
 
     def verificaPosição(self,pos):
         """
